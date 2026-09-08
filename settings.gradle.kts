@@ -22,5 +22,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "solucionbase"
+rootProject.name = "US06"
 include(":app")
+ 
