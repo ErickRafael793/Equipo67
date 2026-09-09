@@ -4,15 +4,13 @@ plugins {
 }
 
 android {
-    namespace = "com.example.solucionbase"
-    compileSdk {
-        version = release(37)
-    }
+    namespace = "com.example.us07"
+    compileSdk = 37
 
     defaultConfig {
-        applicationId = "com.example.solucionbase"
+        applicationId = "com.example.us07"
         minSdk = 24
-        targetSdk = 37
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
 
@@ -21,9 +19,11 @@ android {
 
     buildTypes {
         release {
-            optimization {
-                enable = false
-            }
+            isMinifyEnabled = false
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
         }
     }
     compileOptions {
@@ -44,6 +44,14 @@ dependencies {
     implementation(libs.androidx.compose.ui.tooling.preview)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
+
+    // Retrofit y Convertidor Gson
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+
+    // Lifecycle y ViewModel para Jetpack Compose
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.8.0")
+
     testImplementation(libs.junit)
     androidTestImplementation(platform(libs.androidx.compose.bom))
     androidTestImplementation(libs.androidx.compose.ui.test.junit4)

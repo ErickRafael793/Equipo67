@@ -1,4 +1,4 @@
-package com.example.solucionbase
+package com.example.us07
 
 import org.junit.Test
 
